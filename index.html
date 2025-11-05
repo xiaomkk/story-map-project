@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Philly Heat & Cooling — Blueprint Story Map</title>
+  <meta name="description" content="A slideshow-style story map on heat vulnerability and cooling resources in Philadelphia." />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="map" class="map blueprint" aria-label="Blueprint basemap of Philadelphia"></div>
+
+  <!-- Slide deck -->
+  <div class="slides" id="slides" role="region" aria-label="Slideshow">
+
+<section class="slide active" data-step="0" data-layer="none" data-center="39.9526,-75.1652" data-zoom="11.5">
+  <div class="content">
+    <h1>Staying Cool in Philly</h1>
+    <p class="lead">Heat Vulnerability & Access to Cooling Resources</p>
+    <img src="img/skyline.jpg" alt="Philadelphia skyline" class="hero" />
+    <p class="credits">Scroll or press ↓ to advance • Zoom buttons control the map</p>
+    <button id="sourcesBtn" class="btn">Show sources</button>
+  </div>
+</section>
+
+<section class="slide" data-step="1" data-layer="hvi" data-center="39.965,-75.14" data-zoom="12.0">
+  <div class="content">
+    <h2>Where heat risk is highest</h2>
+    <p>The City’s Heat Vulnerability Index (HVI) highlights neighborhoods facing elevated risk. Darker tracts indicate higher vulnerability based on environmental and social factors.</p>
+  </div>
+</section>
+
+<section class="slide" data-step="2" data-layer="pools" data-center="39.94,-75.16" data-zoom="12.2">
+  <div class="content">
+    <h2>Swimming pools</h2>
+    <p>Public pools provide seasonal relief on extreme heat days.</p>
+  </div>
+</section>
+
+<section class="slide" data-step="3" data-layer="sites" data-center="39.99,-75.16" data-zoom="12.2">
+  <div class="content">
+    <h2>Recreation & program sites</h2>
+    <p>PPR program sites (recreation centers, older adult centers, environmental education sites) may serve as cooling resources during emergencies.</p>
+  </div>
+</section>
+
+  </div>
+  <nav class="dots" id="dots" aria-label="Slide navigation"></nav>
+
+  <!-- Sources modal -->
+  <dialog id="sources">
+    <h3>Data Sources</h3>
+    <ul>
+      <li><strong>Heat Vulnerability by Census Tract</strong> — City of Philadelphia / OpenDataPhilly (GeoJSON). Accessed September 23, 2025.</li>
+      <li><strong>Parks & Recreation Program Sites</strong> — City of Philadelphia / OpenDataPhilly (GeoJSON). Accessed September 23, 2025.</li>
+      <li><strong>Parks & Recreation Swimming Pools</strong> — City of Philadelphia / OpenDataPhilly (GeoJSON). Accessed September 23, 2025.</li>
+      <li><strong>Philadelphia Neighborhoods</strong> — City of Philadelphia / OpenDataPhilly (GeoJSON). Accessed September 23, 2025.</li>
+    </ul>
+    <form method="dialog">
+      <button class="btn">Close</button>
+    </form>
+  </dialog>
+
+  <button id="prevBtn" class="navbtn" aria-label="Previous slide">‹</button>
+  <button id="nextBtn" class="navbtn" aria-label="Next slide">›</button>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="main.js"></script>
+</body>
+</html>

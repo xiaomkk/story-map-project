@@ -1,0 +1,108 @@
+:root{
+  --bg: #0b2559;          
+  --text: #e8f0ff;
+  --muted: #b6c6e3;
+  --accent: #88d0ff;
+  --panel: rgba(5,18,45,.78);
+  --btn: #1d64c3;
+  --btnText: #eaf2ff;
+}
+
+html, body { height: 100%; }
+body{
+  margin: 0;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+#map{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.leaflet-control-container .leaflet-bottom.leaflet-right{
+  z-index: 4;
+}
+.leaflet-control-zoom{
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slides{
+  position: relative;
+  z-index: 2;
+  scroll-snap-type: y mandatory;
+  pointer-events: none; 
+}
+
+.slide{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 10vh 1rem;
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.slide.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content{
+  max-width: 920px;
+  width: min(92vw, 920px);
+  background: rgba(24,34,56,.88); 
+  border: 1px solid rgba(200,230,255,.22);
+  border-radius: 22px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  padding: clamp(1rem, 4vw, 1.6rem);
+  backdrop-filter: blur(2px);
+  pointer-events: auto;
+}
+
+h1,h2{ margin: .2rem 0 .6rem; letter-spacing: .3px; }
+.lead{ color: var(--muted); margin: 0 0 .8rem; }
+.hero{ width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.2); }
+.credits{ color: var(--muted); font-size: .95rem; margin-top: .6rem; }
+
+.dots{
+  position: fixed;
+  right: 14px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 8px;
+  z-index: 3; pointer-events: auto;
+}
+.dots button{
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.6); background: transparent; cursor: pointer;
+}
+.dots button.active{ background: var(--accent); border-color: var(--accent); }
+
+.navbtn{
+  position: fixed; bottom: 16px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--btn); color: var(--btnText); border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+  cursor: pointer; z-index: 3; pointer-events: auto;
+}
+#prevBtn{ left: 16px; }
+#nextBtn{ right: 16px; }
+
+/* Buttons + modal */
+.btn{
+  background: var(--btn); color: var(--btnText);
+  border: 1px solid rgba(255,255,255,.25); border-radius: 10px;
+  padding: .5rem .8rem; cursor: pointer;
+}
+dialog{
+  color: var(--text);
+  border: 1px solid rgba(124,198,255,.3);
+  border-radius: 14px; padding: 1rem 1rem 1.2rem;
+  background: rgba(5,18,45,.96);
+}
+dialog::backdrop{ background: rgba(0,0,0,.5); }
